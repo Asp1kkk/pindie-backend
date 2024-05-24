@@ -10,6 +10,7 @@ const createGame = async (req, res, next) => {
 	console.log("method: POST\nendpoint: /games");
 	try {
 		req.game = await game.create(req.body);
+		next();
 	} catch (error) {
 		res.setHeader("Content-Type", "application/json");
 		res.status(400).send(JSON.stringify({ message: "Ошибка создания игры" }));
