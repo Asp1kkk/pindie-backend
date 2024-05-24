@@ -8,4 +8,9 @@ const sendCreatedCategory = (req, res) => {
 	res.end(JSON.stringify(req.category));
 };
 
-module.exports = { sendAllCategories, sendCreatedCategory };
+const sendCategoryById = (req, res) => {
+	res.setHeader("Content-Type", "application/json");
+	res.end(JSON.stringify(req.category));
+};
+
+module.exports = { sendAllCategories, sendCreatedCategory, sendCategoryById };

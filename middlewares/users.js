@@ -19,4 +19,14 @@ const createUser = async (req, res, next) => {
 	console.log("- - - - - - -");
 };
 
-module.exports = { findAllUsers, createUser };
+const findUserById = async (req, res, next) => {
+	try {
+		req.user = await users.findById(req.params.id);
+		next();
+	} catch (error) {
+		res.setHeader("Content-Type", "application/json");
+		res.status(404).send(JSON.stringify({ message: "Пользователь не найден" }));
+	}
+};
+
+module.exports = { findAllUsers, createUser, findUserById };
