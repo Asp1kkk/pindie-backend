@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const categoryModel = require("./category");
+const userModel = require("./user");
 
 const gameSchema = new mongoose.Schema({
 	title: {
