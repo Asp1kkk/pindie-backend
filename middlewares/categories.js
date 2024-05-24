@@ -5,4 +5,18 @@ const findAllCategories = async (req, res, next) => {
 	next();
 };
 
-module.exports = findAllCategories;
+const createCategory = async (req, res, next) => {
+	console.log("method: POST\nendpoint: /categories");
+	try {
+		console.log(req.body);
+		req.category = await categories.create(req.body);
+		next();
+	} catch (error) {
+		res.setHeader("Content-Type", "application/json");
+		res.status(400).send(JSON.stringify({ message: "Ошибка создания категории" }));
+		console.error(error);
+	}
+	console.log("- - - - - - -");
+};
+
+module.exports = { findAllCategories, createCategory };
