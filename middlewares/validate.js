@@ -93,4 +93,4 @@ const checkIfUsersAreSafe = async (req, res, next) => {
 	}
 };
 
-module.exports = { checkEmptyFields };
+module.exports = { checkEmptyFields, checkEmptyName, checkEmptyNameAndEmailAndPassword, checkEmptyNameAndEmail, checkIsGameExists, checkIsUserExists, checkIsCategoryExists, checkIfCategoriesAvaliable, checkIfUsersAreSafe };
