@@ -39,4 +39,16 @@ const updateGame = async (req, res, next) => {
 	}
 };
 
-module.exports = { findAllGames, createGame, findGameById, updateGame };
+// Файл middlewares/games.js
+
+const deleteGame = async (req, res, next) => {
+	try {
+		req.game = await games.findByIdAndDelete(req.params.id);
+		next();
+	} catch (error) {
+		res.setHeader("Content-Type", "application/json");
+		res.status(400).send(JSON.stringify({ message: "Ошибка удаления игры" }));
+	}
+};
+
+module.exports = { findAllGames, createGame, findGameById, updateGame, deleteGame };
