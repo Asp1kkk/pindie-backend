@@ -3,7 +3,7 @@ const gamesRouter = require("express").Router();
 const { findAllGames, createGame, findGameById, updateGame, deleteGame } = require("../middlewares/games");
 const { sendAllGames, sendCreatedGame, sendGameById, sendUpdatedGame, sendDeletedGame } = require("../controllers/games");
 const { checkIsGameExists, checkIfCategoriesAvaliable, checkEmptyFields, checkIfUsersAreSafe } = require("../middlewares/validate");
-const checkAuth = require("../middlewares/auth");
+const { checkAuth } = require("../middlewares/auth");
 
 gamesRouter.get("/games/:id", findGameById, sendGameById);
 gamesRouter.get("/games", findAllGames, sendAllGames);
