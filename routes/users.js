@@ -5,6 +5,7 @@ const { sendAllUsers, sendCreatedUser, sendUserById, sendUpdatedUser, sendDelete
 const { checkIsUserExists, checkEmptyNameAndEmailAndPassword, checkEmptyNameAndEmail } = require("../middlewares/validate");
 
 usersRouter.post("/users", findAllUsers, checkIsUserExists, checkEmptyNameAndEmailAndPassword, createUser, sendCreatedUser);
+usersRouter.get("/users", findAllUsers, sendAllUsers);
 usersRouter.get("/users/:id", findUserById, sendUserById);
 usersRouter.put("/users/:id", checkEmptyNameAndEmail, updateUser, sendUpdatedUser);
 usersRouter.delete("/users/:id", deleteUser, sendDeletedUser);

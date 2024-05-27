@@ -5,6 +5,7 @@ const { sendAllGames, sendCreatedGame, sendGameById, sendUpdatedGame, sendDelete
 const { checkIsGameExists, checkIfCategoriesAvaliable, checkEmptyFields, checkIfUsersAreSafe } = require("../middlewares/validate");
 
 gamesRouter.get("/games/:id", findGameById, sendGameById);
+gamesRouter.get("/games", findAllGames, sendAllGames);
 gamesRouter.post("/games", findAllGames, checkIsGameExists, checkIfCategoriesAvaliable, checkEmptyFields, createGame, sendCreatedGame);
 gamesRouter.put("/games/:id", findGameById, checkIfUsersAreSafe, checkIfCategoriesAvaliable, checkEmptyFields, updateGame, sendUpdatedGame);
 gamesRouter.delete("/games/:id", deleteGame, sendDeletedGame);

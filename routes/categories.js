@@ -5,6 +5,7 @@ const { sendAllCategories, sendCreatedCategory, sendCategoryById, sendUpdatedCat
 const { checkIsCategoryExists, checkEmptyName } = require("../middlewares/validate");
 
 categoriesRouter.post("/categories", findAllCategories, checkIsCategoryExists, checkEmptyName, createCategory, sendCreatedCategory);
+categoriesRouter.get("/categories", findAllCategories, sendAllCategories);
 categoriesRouter.get("/categories/:id", findCategoryById, sendCategoryById);
 categoriesRouter.put("/categories/:id", checkEmptyName, updateCategory, sendUpdatedCategory);
 categoriesRouter.delete("/categories/:id", deleteCategory, sendDeletedCategory);
