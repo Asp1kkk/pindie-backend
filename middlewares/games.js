@@ -47,8 +47,6 @@ const updateGame = async (req, res, next) => {
 	}
 };
 
-// Файл middlewares/games.js
-
 const deleteGame = async (req, res, next) => {
 	try {
 		req.game = await games.findByIdAndDelete(req.params.id);
@@ -59,4 +57,11 @@ const deleteGame = async (req, res, next) => {
 	}
 };
 
-module.exports = { findAllGames, createGame, findGameById, updateGame, deleteGame };
+const checkIsVoteRequest = async (req, res, next) => {
+	if (Object.keys(req.body).length === 1 && req.body.users) {
+		req.isVoteRequest = true;
+	}
+	next();
+};
+
+module.exports = { findAllGames, createGame, findGameById, updateGame, deleteGame, checkIsVoteRequest };

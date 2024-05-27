@@ -14,6 +14,6 @@ connectToDatabase();
 
 app.use(cors, cookieParser(), bodyParser.json(), pagesRouter, apiRouter, express.static(path.join(__dirname, "public")));
 
-app.listen(3000, () => {
-	console.log(`App is listened on PORT: ${3000}`);
+app.listen(3001, () => {
+	console.log(`App is listened on PORT: ${3001}`);
 });
