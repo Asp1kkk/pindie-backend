@@ -1,4 +1,4 @@
-const allowedCors = ["https://practicum.yandex.ru", "http://localhost:3000", "http://localhost:3001"];
+const allowedCors = ["https://practicum.yandex.ru", "http://localhost:3000", "http://localhost:3001", "https://pindie-aspik.nomorepartiesco.ru"];
 
 const cors = (req, res, next) => {
 	const { origin } = req.headers;
